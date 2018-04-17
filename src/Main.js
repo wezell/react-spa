@@ -24,7 +24,9 @@ class Main extends Component {
 
     cms.navClient().getNav("/", 2).then(myData => {
       console.log(myData);
-      this.setState({ nav: myData.children });
+      if(myData != undefined){
+        this.setState({ nav: myData.children });
+      }
     })
   }
 
@@ -35,9 +37,10 @@ class Main extends Component {
           <h1>dotCMS SPA</h1>
           <ul className="header">
             {this.state.nav.map(item => <li><NavLink to={item.href}>{item.title}</NavLink></li>)}
+            <li><NavLink to="/news">News</NavLink></li>
           </ul>
           <div className="content">
-
+              <Route path='/news/:urlMap' component={News} />
               <Route  component={PageDetail} />
 
           </div>
