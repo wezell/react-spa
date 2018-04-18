@@ -5,17 +5,17 @@ export default class ContentAPI {
   }
 
 
-  pull(json) {
+  pullRaw(json) {
 
     var args = this.dotCMS.baseArgs();
     args.method = "post";
-    args.body = jsonString;
-
-
+    args.body = JSON.stringify(json);
+    console.log(args.body);
 
     return fetch(this.dotCMS.baseUrl + this.endPoint, args)
       .then(result => result.json())
       .then(function (result) {
+        console.log(result);
         return result.contentlets;
       })
       .catch(function (error) {
@@ -31,8 +31,6 @@ export default class ContentAPI {
     var ascDesc = (json.ascDesc != null) ? json.ascDesc : "asc";
     var page = (json.page != null) ? json.page : 0;
     return this.pullArgs(q, limit, orderBy, ascDesc, page);
-
-
   }
 
   pullArgs(query, limit, orderBy, ascDesc, page) {

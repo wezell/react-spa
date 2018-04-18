@@ -12,40 +12,47 @@ import {
 } from 'react-router-dom';
 
 class AppInitializer {
-    buildRoutes(data){
+    buildRoutes(data) {
         return data.map((page, i) => {
-
-            return(
-                <Route
-                    key={`route{i}`}
-                    component={ PageDetail }
-                    path={`${page.href}`}
-                    exact
-                /> 
-            )
-        })     
+            this.buildRoute(page);
+            if(page.children !== undefined){
+                this.buildRoutes(page.children);
+            }
+        })
+    }
+    buildRoute(page) {
+        return (
+            
+            <Route
+                key={`route{i}`}
+                component={PageDetail}
+                path={`${page.href}`}
+                exact
+            />
+        )
     }
 
-
     run() {
-        new dotCMS().navClient().getNav("/", 2).then(nav => {
+        new dotCMS().navClient().getNav("/", 5).then(nav => {
 
-                render(
-                    <Router>
-                        <div>
-                            <Switch>
-                                <Route path="/" key="home" component={Home} exact />
-                                <Route path='/news/:urlMap' key="newz" component={News} />
-                                {this.buildRoutes(nav)}
-                                
-                                <Route render={() => { return <Redirect to="/" /> }} />
-                            </Switch>
-                        </div>
-                    </Router>
+            render(
+                <Router>
+                    <div>
+                        <Switch>
+                        {this.buildRoutes(nav)}
+                            <Route path="/" key="home" component={Home} exact />
+                            <Route path='/news/:urlMap' key="newz" component={News} />
+     
 
-                    , document.getElementById('app')
-                );
-            })
+                        
+
+                        </Switch>
+                    </div>
+                </Router>
+
+                , document.getElementById('app')
+            );
+        })
 
     }
 }

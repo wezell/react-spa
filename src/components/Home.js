@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import dotCMS from '../api/dotCMS';
 import {
-  Route,
-  NavLink,
-  BrowserRouter
+  NavLink
 } from "react-router-dom";
 
 
@@ -13,31 +11,39 @@ class Home extends Component {
     this.state = { nav: [] };
   }
   componentDidMount() {
-    new dotCMS().navClient().getNav("/", 2).then(myData => {
+    new dotCMS().navClient().getNav("/", 3).then(myData => {
 
-      if(myData != undefined){
+      if (myData !== undefined) {
         this.setState({ nav: myData });
       }
     })
   }
-
+  buildLinks(data) {
+    return data.map((page) => {
+      this.buildLink(page);
+    })
+  }
+  buildLink(item) {
+    if (item.children !== undefined) {
+      return this.buildLinks(item.children);
+    }
+    console.log(item.href)
+    return (
+      <li><NavLink to={item.href}>{item.title}</NavLink></li>
+    )
+  }
   render() {
 
     return (
       <div>
-
-        <div>
-          <h1>dotCMS SPA</h1>
-          <ul className="header">
-            {this.state.nav.map(item => <li><NavLink to={item.href}>{item.title}</NavLink></li>)}
-            <li><NavLink to="/news">News</NavLink></li>
-          </ul>
-
-        </div>
-
+        <h1>dotCMS SPA</h1>
+        <ul className="header">
+          {this.buildLinks(this.state.nav)}
+          <li><NavLink to="/news">News</NavLink></li>
+        </ul>
       </div>
     );
   }
 }
- 
+
 export default Home;

@@ -1,6 +1,6 @@
 import React from 'react';
 import dotCMS from './api/dotCMS';
-
+import Linkify from 'react-linkify';
 
 export default class PageDetail extends React.Component {
   constructor(props) {
@@ -31,11 +31,11 @@ export default class PageDetail extends React.Component {
       return <div></div>;
     }
     return (
-          <div>
+      <Linkify>
             <h1>{this.state.page.title}</h1>
             <div dangerouslySetInnerHTML={{ __html: this.state.page.html }} />
             {this.id}
-          </div>
+          </Linkify>
     );
   }
 }

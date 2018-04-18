@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom'
 export default class NewsListing extends React.Component {
   constructor(props) {
     super(props);
+    console.log("News")
     this.state = { news: [] };
   }
 
@@ -19,14 +20,16 @@ export default class NewsListing extends React.Component {
         orderBy: "news.sysPublishDate"
       }
       var cms = new dotCMS();
-      cms.contentClient().pull(query).then(myData => {
+      cms.contentClient().pullJson(query).then(myData => {
       this.setState({ news: myData });
     })
   }
 
   render() {
     return (
+      
       <ul>
+        <li>listing</li>
         {this.state.news.map(item => <li key={item.identifier}><Link to={`/news/${item.urlTitle}`}>{item.title}</Link></li>)}
 
       </ul>
