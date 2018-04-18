@@ -12,11 +12,12 @@ export default class PageDetail extends React.Component {
 
 
   componentDidMount() {
-    console.log("PageDetail:componentDidMount"  )
+    console.log("PageDetail:" + this.state.urlMap )
 
-    var cms = new dotCMS("http://localhost:8080","eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJpWEtweXU2QmtzcWI0MHZNa3VSUVF3PT0iLCJpYXQiOjE1MjM0NjI4MDEsInN1YiI6IntcInVzZXJJZFwiOlwiaVhLcHl1NkJrc3FiNDB2TWt1UlFRd1xcdTAwM2RcXHUwMDNkXCIsXCJsYXN0TW9kaWZpZWRcIjoxMjA0ODI0OTYxMDAwLFwiY29tcGFueUlkXCI6XCJkb3RjbXMub3JnXCJ9IiwiaXNzIjoiaVhLcHl1NkJrc3FiNDB2TWt1UlFRdz09IiwiZXhwIjoxNTI2MDU0ODAxfQ.Q0MdoMix4bbic-Ckxa1G33gQrU9GLiJ1Je3cdYo4KcY");
+    var cms = new dotCMS();
     cms.pageClient().pageHTML(this.state.urlMap).then(myData => {
       this.setState({ page: myData });
+      console.log("data:", myData)
     }).catch(function(rej){
       console.error("PageDetail:"+ rej);
     });
@@ -25,16 +26,13 @@ export default class PageDetail extends React.Component {
 
   render() {
     var x = this.props.location.pathname;
-    
-
-
 
     if(this.state.page === null){
       return <div></div>;
     }
     return (
           <div>
-            <h2>{this.props.location.pathname}</h2>
+            <h1>{this.state.page.title}</h1>
             <div dangerouslySetInnerHTML={{ __html: this.state.page.html }} />
             {this.id}
           </div>

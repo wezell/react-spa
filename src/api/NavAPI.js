@@ -6,17 +6,23 @@ export default class NavAPI {
 
   getNav(path, level) {
     var args = this.dotCMS.baseArgs();
-    var x =this.dotCMS.baseUrl + this.endPoint + path + "?depth=" + level;
-    console.log(x);
+
     return fetch(this.dotCMS.baseUrl + this.endPoint + path + "?depth=" + level, args)
       .then(result => result.json())
       .then(function (result) {
-        return result;
+        if(result !== undefined && result.children !== undefined){
+          return result.children;
+        }
+
       })
       .catch(function (error) {
         console.log('Request failed', error);
       })
   }
+
+
+
+
 
 
 }

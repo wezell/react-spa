@@ -33,7 +33,8 @@ export default class dotCMS {
                 'Content-Type': 'application/json'
                 
             },
-            "cache" :'no-cache'
+            redirect: 'follow',
+            cache :'no-cache'
         }
     }
 
