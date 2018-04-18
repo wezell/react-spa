@@ -12,28 +12,29 @@ class Home extends Component {
   }
   componentDidMount() {
     new dotCMS().navClient().getNav("/", 3).then(myData => {
-
       if (myData !== undefined) {
         this.setState({ nav: myData });
       }
     })
   }
+
   buildLinks(data) {
     return data.map((page) => {
-      this.buildLink(page);
+      return this.buildLink(page);
     })
   }
+
   buildLink(item) {
     if (item.children !== undefined) {
       return this.buildLinks(item.children);
+    } else {
+      return (
+        <li><NavLink to={item.href}>{item.title}</NavLink></li>
+      )
     }
-    console.log(item.href)
-    return (
-      <li><NavLink to={item.href}>{item.title}</NavLink></li>
-    )
   }
-  render() {
 
+  render() {
     return (
       <div>
         <h1>dotCMS SPA</h1>

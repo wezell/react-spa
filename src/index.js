@@ -14,17 +14,19 @@ import {
 class AppInitializer {
     buildRoutes(data) {
         return data.map((page, i) => {
-            this.buildRoute(page);
-            if(page.children !== undefined){
-                this.buildRoutes(page.children);
+            if (page.children !== undefined) {
+                return this.buildRoutes(page.children);
+            } else {
+                return this.buildRoute(page);
             }
+
         })
     }
     buildRoute(page) {
         return (
-            
+
             <Route
-                key={`route{i}`}
+                key={`route${page.href}`}
                 component={PageDetail}
                 path={`${page.href}`}
                 exact
@@ -39,13 +41,9 @@ class AppInitializer {
                 <Router>
                     <div>
                         <Switch>
-                        {this.buildRoutes(nav)}
-                            <Route path="/" key="home" component={Home} exact />
+                            {this.buildRoutes(nav)}
+                            <Route path="/" key="home" component={Home} />
                             <Route path='/news/:urlMap' key="newz" component={News} />
-     
-
-                        
-
                         </Switch>
                     </div>
                 </Router>

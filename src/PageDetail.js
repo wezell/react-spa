@@ -17,7 +17,7 @@ export default class PageDetail extends React.Component {
     var cms = new dotCMS();
     cms.pageClient().pageHTML(this.state.urlMap).then(myData => {
       this.setState({ page: myData });
-      console.log("data:", myData)
+
     }).catch(function(rej){
       console.error("PageDetail:"+ rej);
     });
