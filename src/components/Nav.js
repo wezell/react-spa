@@ -65,8 +65,13 @@ class Nav extends Component {
     return (
       
       <div>
+        <header id="header" class="header-wrap">
           {this.buildLinks(this.state.nav)}
+          </header>
+          <div class="content-wrap">
+
           {this.buildRoutes(this.state.nav)}
+          </div>
       </div>
 
       

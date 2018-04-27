@@ -25,17 +25,23 @@ export default class PageDetail extends React.Component {
   }
 
   render() {
-    var x = this.props.location.pathname;
+    var data =this.state.page;
 
-    if(this.state.page === null){
+    if(data === null){
       return <div></div>;
     }
+    var x = this.props.location.pathname;
+    var rows = data.layout.body.rows;
     return (
-      <Linkify>
-            <h1>{this.state.page.title}</h1>
-            <div dangerouslySetInnerHTML={{ __html: this.state.page.html }} />
-            {this.id}
-          </Linkify>
+      <div>
+
+
+
+
+       <div dangerouslySetInnerHTML={{ __html: data.html }} />
+
+        </div>
+
     );
   }
 }

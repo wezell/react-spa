@@ -5,7 +5,8 @@ import DotRoute from './DotRoute';
 import {
   Route,
   NavLink,
-  HashRouter
+  HashRouter,
+  BrowserRouter
 } from "react-router-dom";
 
 class Home extends Component {
@@ -17,11 +18,11 @@ class Home extends Component {
 
   render() {
     return (
-      <HashRouter>
+      <BrowserRouter>
           <Nav/>
           
 
-      </HashRouter>
+      </BrowserRouter>
     );
   }
 }
