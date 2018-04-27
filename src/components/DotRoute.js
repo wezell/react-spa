@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 
 
-class Nav extends Component {
+class DotRoute extends Component {
   constructor(props) {
     super(props);
     this.state = { nav: [] };
@@ -21,23 +21,7 @@ class Nav extends Component {
     })
   }
 
-  buildLinks(data) {
-    return data.map((page) => {
-      return this.buildLink(page);
-    })
-  }
 
-  buildLink(item) {
-    if (item.children !== undefined && item.children.length >0) {
-      return <li>{item.children[0].title}
-        <ul>{this.buildLinks(item.children)}</ul>
-        </li>
-    } else {
-      return (
-        <li><NavLink to={item.href}>{item.title}</NavLink></li>
-      )
-    }
-  }
 
   buildRoutes(data) {
     return data.map((page, i) => {
@@ -60,12 +44,10 @@ class Nav extends Component {
           />
       )
   }
-
   render() {
     return (
       
       <div>
-          {this.buildLinks(this.state.nav)}
           {this.buildRoutes(this.state.nav)}
       </div>
 
@@ -74,4 +56,4 @@ class Nav extends Component {
   }
 }
 
-export default Nav;
+export default DotRoute;

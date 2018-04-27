@@ -4,18 +4,24 @@ export default class ContentAPI {
 
   }
 
+   getType(p) {
+    if (Array.isArray(p)) return 'array';
+    else if (typeof p == 'string') return 'string';
+    else if (p != null && typeof p == 'object') return 'object';
+    else return 'other';
+  }
 
-  pullRaw(json) {
+  pull(json) {
 
     var args = this.dotCMS.baseArgs();
     args.method = "post";
-    args.body = JSON.stringify(json);
-    console.log(args.body);
+    args.body = (this.getType(json)==='string') ? json : JSON.stringify(json);
+
 
     return fetch(this.dotCMS.baseUrl + this.endPoint, args)
       .then(result => result.json())
       .then(function (result) {
-        console.log(result);
+        console.log("result", result);
         return result.contentlets;
       })
       .catch(function (error) {
@@ -48,6 +54,7 @@ export default class ContentAPI {
       }
     };
     var jsonString = JSON.stringify(payload).replace("[orderBy]", orderBy);
+
     return this.pull(jsonString);
   }
 }

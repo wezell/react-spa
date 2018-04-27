@@ -15,7 +15,7 @@ export default class NewsDetail extends React.Component {
         query: "+contentType:News +news.urlTitle:" + this.state.urlMap
       }
       var cms = new dotCMS();
-     cms.contentClient().pull(query).then(myData => {
+     cms.contentClient().pullJson(query).then(myData => {
       this.setState({ news: myData[0] });
     })
 

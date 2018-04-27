@@ -29,7 +29,7 @@ export default class NewsListing extends React.Component {
     return (
       
       <ul>
-        <li>listing</li>
+
         {this.state.news.map(item => <li key={item.identifier}><Link to={`/news/${item.urlTitle}`}>{item.title}</Link></li>)}
 
       </ul>
