@@ -1,5 +1,5 @@
 import React from 'react';
-import dotCMS from './api/dotCMS';
+import dotCMS from '../api/dotCMS';
 import Linkify from 'react-linkify';
 
 export default class PageDetail extends React.Component {
