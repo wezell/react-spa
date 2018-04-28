@@ -1,27 +1,23 @@
-export default class ContentAPI {
-  constructor(dotCMSClient) {
-    this.dotCMS = dotCMSClient;
+import alt   from './alt/alt.js';
+import dotCMS   from 'dotCMS';
 
+class ContentAction {
+  constructor() {
+    this.dotCMS = new dotCMS();
   }
 
-   getType(p) {
-    if (Array.isArray(p)) return 'array';
-    else if (typeof p === 'string') return 'string';
-    else if (p != null && typeof p === 'object') return 'object';
-    else return 'other';
-  }
 
-  pull(json) {
+  pullRaw(json) {
 
     var args = this.dotCMS.baseArgs();
     args.method = "post";
-    args.body = (this.getType(json)==='string') ? json : JSON.stringify(json);
-
+    args.body = JSON.stringify(json);
+    console.log(args.body);
 
     return fetch(this.dotCMS.baseUrl + this.endPoint, args)
       .then(result => result.json())
       .then(function (result) {
-        console.log("result", result);
+        console.log(result);
         return result.contentlets;
       })
       .catch(function (error) {
@@ -54,11 +50,10 @@ export default class ContentAPI {
       }
     };
     var jsonString = JSON.stringify(payload).replace("[orderBy]", orderBy);
-
     return this.pull(jsonString);
   }
 }
-ContentAPI.prototype.endPoint = "/api/es/search";
-
+ContentAction.prototype.endPoint = "/api/es/search";
+export default alt.createActions(ContentAction);
 
 
