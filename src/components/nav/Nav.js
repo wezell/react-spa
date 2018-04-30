@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import dotCMS from '../api/dotCMS';
-import PageDetail from './PageDetail';
+import dotCMS from '../../api/dotCMS';
+import PageDetail from '../PageDetail';
 import {
   Route,
   NavLink,
@@ -75,7 +75,7 @@ class Nav extends Component {
       <div>
 
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <a className="navbar-brand" href="/index">Home</a>
+          <a className="navbar-brand" href="/">Home</a>
 
 
            <div className="collapse navbar-collapse" id="navbarSupportedContent">
