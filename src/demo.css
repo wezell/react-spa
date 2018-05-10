@@ -1,26 +1,26 @@
 .layout-page .row{
-    margin-bottom:20px;
+    margin-top:20px;
 
     background-color: rgb(192, 203, 192);
 }
 
 .layout-page .column:not(:first-child){
-
+    border-left:20px solid white;
 }
 
-.layout-page > .column{
-    border:5px solid white;
+.layout-page .column{
+
     padding-top:10px;
     padding-bottom:10px;
 
 }
-.layout-page >  .container{
+.layout-page   .container{
     
     overflow: hidden;
     
 }
 
-.navbar >  .navbar-brand{
+.navbar   .navbar-brand{
     padding-left: 10px;
     padding-right:10px;
 }
