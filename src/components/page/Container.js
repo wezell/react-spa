@@ -27,7 +27,7 @@ export default class Container extends React.Component {
     
     return (
       <Linkify>
-        <div dangerouslySetInnerHTML={{ __html: container }} />
+        <div className="container" dangerouslySetInnerHTML={{ __html: container }} />
       </Linkify>
     );
   }

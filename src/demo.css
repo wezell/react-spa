@@ -1,0 +1,43 @@
+.layout-page .row{
+    margin-bottom:20px;
+
+    background-color: rgb(192, 203, 192);
+}
+
+.layout-page .column:not(:first-child){
+
+}
+
+.layout-page > .column{
+    border:5px solid white;
+    padding-top:10px;
+    padding-bottom:10px;
+
+}
+.layout-page >  .container{
+    
+    overflow: hidden;
+    
+}
+
+.navbar >  .navbar-brand{
+    padding-left: 10px;
+    padding-right:10px;
+}
+.dropdown-menu   .nav-item{
+    width:100%
+}
+
+
+body {
+    background-color: rgb(255, 255, 255);
+
+    margin: 0;
+  }
+  h1, h2, p, ul, li {
+    font-family: sans-serif;
+  }
+
+  .active {
+    background-color:darkgray;
+  }

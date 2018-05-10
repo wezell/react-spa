@@ -13,6 +13,7 @@ export default class Row extends React.Component {
     var row = this.props.row;
     var cols = row.columns;
     var left =0;
+
     return (
       <div className="row">
         {cols.map(col => 

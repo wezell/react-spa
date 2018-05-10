@@ -15,7 +15,7 @@ export default class LayoutPage extends React.Component {
 
     var rows = data.layout.body.rows;
     return (
-      <div className="container">
+      <div className="container layout-page">
 
 
         {rows.map(row => <Row key={row.identifier} page={this.props.page} row={row}/>)}

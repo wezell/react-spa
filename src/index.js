@@ -4,7 +4,7 @@ import Home from './components/Home.js';
 import dotCMS from './api/dotCMS';
 
 import News from './News';
-
+import "./demo.css";
 
 class AppInitializer {
 

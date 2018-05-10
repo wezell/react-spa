@@ -76,7 +76,7 @@ class Nav extends Component {
       <div>
         <header>
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <a className="navbar-brand" href="/index">Home</a>
+            <NavLink className="navbar-brand" to="/index">Home</NavLink>
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav mr-auto">
                 {this.buildLinks(this.state.nav)}

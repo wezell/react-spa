@@ -20,7 +20,7 @@ export default class RawPage extends React.Component {
       }
     }
     return (
-      <div className="container">
+      <div className="container raw-page">
         <Linkify>
           <div dangerouslySetInnerHTML={{ __html: str }} />
         </Linkify>
