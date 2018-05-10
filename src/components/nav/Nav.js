@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import dotCMS from '../../api/dotCMS';
-import PageDetail from '../PageDetail';
+import PageDetail from '../page/PageDetail';
 import {
   Route,
   NavLink,
@@ -30,19 +30,20 @@ class Nav extends Component {
   buildLink(item) {
     if (item.children !== undefined && item.children.length > 0) {
       return <li className="nav-item dropdown">
-      <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        {item.title}
+        <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {item.title}
         </a>
         <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-      
-      
-      
-        <ul className="nav">{this.buildLinks(item.children)}</ul>
+
+
+
+          <ul className="nav">{this.buildLinks(item.children)}</ul>
         </div>
       </li>
     } else {
+    
       return (
-        <li className="nav-item"><NavLink className="nav-link" to={item.href}>{item.title}</NavLink></li>
+        <li className="nav-item"><NavLink key={item.hash} className="nav-link" to={item.href}>{item.title}</NavLink></li>
       )
     }
   }
@@ -73,21 +74,25 @@ class Nav extends Component {
     return (
 
       <div>
-
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <a className="navbar-brand" href="/">Home</a>
-
-
-           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-           <ul className="navbar-nav mr-auto">
-            {this.buildLinks(this.state.nav)}
-            </ul>
-          </div>
+        <header>
+          <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <a className="navbar-brand" href="/index">Home</a>
+            <div className="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul className="navbar-nav mr-auto">
+                {this.buildLinks(this.state.nav)}
+              </ul>
+            </div>
           </nav>
-
-        <div className="content-wrap">
+        </header>
+        <main className="content-wrap">
           {this.buildRoutes(this.state.nav)}
-        </div>
+          <Route
+            key={`route/index`}
+            component={PageDetail}
+            path={`/index`}
+            exact
+          />
+        </main>
       </div>
 
 

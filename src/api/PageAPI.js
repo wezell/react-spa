@@ -50,4 +50,4 @@ export default class PageAPI {
   }
 }
 
-PageAPI.prototype.endPoint = "/api/v1/page/renderHTML";
+PageAPI.prototype.endPoint = "/api/v1/page/render";

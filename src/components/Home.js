@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import Nav from './nav/Nav';
-import DotRoute from './DotRoute';
+
 import {
   Route,
   NavLink,
