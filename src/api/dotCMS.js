@@ -1,6 +1,7 @@
 import ContentAPI from "./ContentAPI";
 import PageAPI from "./PageAPI";
 import NavAPI from "./NavAPI";
+import EditMode from "./EditMode";
 
 export default class dotCMS {
 
@@ -23,6 +24,10 @@ export default class dotCMS {
     
     contentClient() {
         return new ContentAPI(this);
+    }
+
+    editMode() {
+        return new EditMode(this);
     }
 
     baseArgs() {

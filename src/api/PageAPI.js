@@ -34,7 +34,7 @@ export default class PageAPI {
   pageHTML(pageUrlStr) {
 
     return this.resolveFolder(pageUrlStr).then(link => {
-      var purl = this.dotCMS.baseUrl + this.endPoint +"/"+ link;
+      var purl = this.dotCMS.baseUrl + this.endPoint +"/"+ link + "?mode=EDIT_MODE";
 
       let args = this.dotCMS.baseArgs();
       args.redirect="follow";
