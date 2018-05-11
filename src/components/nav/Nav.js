@@ -4,6 +4,7 @@ import PageDetail from '../page/PageDetail';
 import {
   Route,
   NavLink,
+  Redirect,
   BrowserRouter
 } from "react-router-dom";
 
@@ -87,6 +88,7 @@ class Nav extends Component {
           </nav>
         </header>
         <main className="content-wrap">
+        <Redirect from="/" exact to="/index" />
           {this.buildRoutes(this.state.nav)}
           <Route
             key={`route/index`}
