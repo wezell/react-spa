@@ -8,8 +8,18 @@ export default class PageDetail extends React.Component {
   constructor(props) {
     super(props);
     console.log("PageDetail:", props)
+    const queryString = require('query-string');
+    var parsed = queryString.parse(this.props.location.search);
+    var persona = parsed["com.dotmarketing.persona.id"];
+
+
     var loc = props.location.pathname.replace("/pages", "");
-    this.state = { page: null, urlMap: loc };
+
+    if(persona!=undefined){
+      loc = loc + "?com.dotmarketing.persona.id=" + persona;
+    }
+
+    this.state = { page: null, urlMap: loc, persona: persona };
   }
 
 
@@ -29,6 +39,7 @@ export default class PageDetail extends React.Component {
   render() {
     var data = this.state.page;
 
+
     if (data === null) {
       return <div></div>;
     }
@@ -37,7 +48,7 @@ export default class PageDetail extends React.Component {
 
     if (!hasLayout) {
       return (
-        <RawPage page={data} />
+        <RawPage page={data}  />
       );
     } else {
       return (

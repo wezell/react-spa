@@ -1,6 +1,5 @@
 import React from 'react';
-import dotCMS from '../../api/dotCMS';
-import Linkify from 'react-linkify';
+
 import Row from './Row' 
 export default class LayoutPage extends React.Component {
   constructor(props) {

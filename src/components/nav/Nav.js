@@ -4,8 +4,8 @@ import PageDetail from '../page/PageDetail';
 import {
   Route,
   NavLink,
-  Redirect,
-  BrowserRouter
+
+
 } from "react-router-dom";
 
 
@@ -31,20 +31,16 @@ class Nav extends Component {
   buildLink(item) {
     if (item.children !== undefined && item.children.length > 0) {
       return <li className="nav-item dropdown">
-        <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a className="nav-link dropdown-toggle" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           {item.title}
         </a>
-        <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-
-
-
-          <ul className="nav">{this.buildLinks(item.children)}</ul>
-        </div>
+          <ul className="dropdown-menu">{this.buildLinks(item.children)}</ul>
+ 
       </li>
     } else {
-    
+      var i=0;
       return (
-        <li className="nav-item"><NavLink key={item.hash} className="nav-link" to={item.href}>{item.title}</NavLink></li>
+        <li className="nav-item"><NavLink key={i++} className="nav-link" to={item.href}>{item.title}</NavLink></li>
       )
     }
   }
@@ -73,23 +69,27 @@ class Nav extends Component {
 
   render() {
     return (
-
       <div>
-        <header>
-          <nav className="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top">
-          <div class="container">
-            <NavLink className="navbar-brand" to="/index">Home</NavLink>
-            <div className="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul className="navbar-nav mr-auto">
-                {this.buildLinks(this.state.nav)}
-              </ul>
+        <header id="header" class="header-wrap" style={{background:"black"}}>
+          <div class="navbar" role="banner">
+            <div class="container header-navbar">
+              <div class="navbar-header navbar-inverse" style={{background:"black"}}>
+                <div class="col-xs-9 col-md-12">
+                  <NavLink to="/index"  style={{background:"black"}}><img src="https://estes.dotcms.io/dA/82ad305a-621d/200w/quest-logo.png" alt="Quest | dotCMS Starter Site" /></NavLink>
+                </div>
+              </div>
+              <nav class="navbar-collapse navbar-inverse bs-navbar-collapse collapse" role="navigation" style={{background:"black"}}>
+                <ul className="nav navbar-nav navbar-inverse">
+                  {this.buildLinks(this.state.nav)}
+                </ul>
+              </nav>
             </div>
-            </div>
-          </nav>
+          </div>
         </header>
         <main className="content-wrap">
-        <Redirect from="/" exact to="/index" />
+          
           {this.buildRoutes(this.state.nav)}
+          
           <Route
             key={`route/index`}
             component={PageDetail}

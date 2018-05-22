@@ -3,9 +3,7 @@ import React, { Component } from "react";
 import Nav from './nav/Nav';
 
 import {
-  Route,
-  NavLink,
-  HashRouter,
+
   BrowserRouter
 } from "react-router-dom";
 

@@ -14,8 +14,9 @@ export default class Container extends React.Component {
   }
 
   getContainer(containerInfo){
-      console.log(containerInfo)
-      return this.props.page.containers[containerInfo.identifier].rendered[ containerInfo.uuid];
+      //console.log("containerInfo", containerInfo)
+      //console.log("this.props.page", this.props.page)
+      return this.props.page.containers[containerInfo].rendered;
 
   }
   render() {
@@ -26,9 +27,9 @@ export default class Container extends React.Component {
     var container = this.getContainer(containerInfo);
     
     return (
-      <Linkify>
-        <div className="container" dangerouslySetInnerHTML={{ __html: container }} />
-      </Linkify>
+
+        <div className="dotContainer" dangerouslySetInnerHTML={{ __html: container }} />
+
     );
   }
 }
