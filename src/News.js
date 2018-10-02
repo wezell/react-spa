@@ -7,9 +7,8 @@ import NewsListing from './NewsListing'
 
 const News = () => (
   <Switch>
-
     <Route path='/news/:urlMap' component={NewsDetail}/>
-    <Route  path='/' component={NewsListing}/>
+
   </Switch>
 )
 

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import dotCMS from '../../api/dotCMS';
 import PageDetail from '../page/PageDetail';
+import News from '../../News';
 import {
   Route,
   NavLink,
@@ -16,7 +17,7 @@ class Nav extends Component {
   }
   componentDidMount() {
     new dotCMS().navClient().getNav("/", 3).then(navData => {
-      console.log("navData", )
+
       if (navData !== undefined) {
         this.setState({ nav: navData });
       }
@@ -45,7 +46,7 @@ class Nav extends Component {
     } else {
     
       return (
-        <li className="nav-item"><NavLink key={"navKey" + item.hash} className="nav-link" to={item.href}>{item.title}</NavLink></li>
+        <li className="nav-item"><NavLink key={"navKey:" + item.hash} className="nav-link" to={item.href}>{item.title}</NavLink></li>
       )
     }
   }
@@ -73,16 +74,19 @@ class Nav extends Component {
   }
 
   render() {
-    console.log(this.state.nav)
+ 
     return (
 
       <div>
         <header>
           <nav className="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top">
           <div className="container">
-            <NavLink className="navbar-brand" key={"navKeyIndex"} to="/index">Home</NavLink>
+            
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul className="navbar-nav mr-auto">
+            <ul className="navbar-nav mr-auto">
+            <li className="nav-item">
+              <NavLink className="nav-link" key={"navKeyIndex"} to="/index">Home</NavLink>
+             </li>
                 {this.buildLinks(this.state.nav)}
               </ul>
             </div>
@@ -90,7 +94,7 @@ class Nav extends Component {
           </nav>
         </header>
         <main className="content-wrap">
-        <Redirect from="/" exact to="/index" />
+     
           {this.buildRoutes(this.state.nav)}
           <Route
             key={`route/index`}
@@ -98,6 +102,7 @@ class Nav extends Component {
             path={`/index`}
             exact
           />
+        <News/>
         </main>
       </div>
 

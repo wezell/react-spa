@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import Nav from './nav/Nav';
+import News from '../News';
 
 import {
   Route,

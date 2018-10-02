@@ -1,44 +1,85 @@
-.layout-page .row{
-    margin-top:20px;
-
-    
+.layout-page .row {
+    margin-top: 20px;
 }
 
-.layout-page .column:not(:first-child){
-    border-left:20px solid white;
+.layout-page .column:not(:first-child) {
+    border-left: 20px solid white;
 }
 
-.layout-page .column{
-
-    padding-top:10px;
-    padding-bottom:10px;
-
+.layout-page .column {
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
-.layout-page   .container{
-    
+
+.layout-page .container {
     overflow: hidden;
     background-color: rgb(192, 203, 192);
-    padding:10px;
+    padding: 10px;
 }
 
-.navbar   .navbar-brand{
+.navbar .navbar-brand {
     padding-left: 10px;
-    padding-right:10px;
-}
-.dropdown-menu   .nav-item{
-    width:100%
+    padding-right: 10px;
 }
 
+.dropdown-menu .nav-item {
+    width: 100%
+}
 
 body {
     background-color: rgb(255, 255, 255);
-
     margin: 0;
-  }
-  h1, h2, p, ul, li {
-    font-family: sans-serif;
-  }
+}
 
-  .active {
-    background-color:darkgray;
-  }
+h1,
+h2,
+h3,
+p,
+ul,
+li {
+    font-family: sans-serif;
+}
+
+.active {
+    background-color: darkgray;
+}
+
+body>.container {
+    padding-top: 60px;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: #f5f5f5;
+}
+
+/* Custom page CSS
+  -------------------------------------------------- */
+
+/* Not required for template or sticky footer method. */
+
+.container {
+    width: auto;
+    padding: 0 15px;
+}
+
+.container .text-muted {
+    margin: 20px 0;
+}

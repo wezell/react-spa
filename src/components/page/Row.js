@@ -18,7 +18,7 @@ export default class Row extends React.Component {
       <div className="row">
         {cols.map(col => 
         
-        <Column page={this.props.page} column={col}/>
+        <Column key={this.props.page.entity} page={this.props.page} column={col} row={this.props.row}/>
         
         )}
         </div>

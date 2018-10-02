@@ -30,18 +30,18 @@ export default class PageDetail extends React.Component {
     var data = this.state.page;
 
     if (data === null) {
-      return <div></div>;
+      return <div>No Page Found</div>;
     }
-    
-    var hasLayout = (data.layout !== undefined && data.layout !==null);
+    console.log(data);
+    var hasLayout = (data.entity.layout !== undefined && data.entity.layout !==null);
 
     if (!hasLayout) {
       return (
-        <RawPage page={data} />
+        <RawPage page={data.entity} />
       );
     } else {
       return (
-        <LayoutPage page={data} />
+        <LayoutPage page={data.entity} />
       );
 
     }

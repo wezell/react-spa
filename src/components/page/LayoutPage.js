@@ -2,28 +2,33 @@ import React from 'react';
 import dotCMS from '../../api/dotCMS';
 import Linkify from 'react-linkify';
 import Row from './Row' 
+import Footer from './Footer' 
+
+
+
 export default class LayoutPage extends React.Component {
   constructor(props) {
     super(props);
-    console.log("LayoutPage:", props)
+
   }
 
 
 
   render() {
-    var data = this.props.page;
-
-    var rows = data.layout.body.rows;
+    var page = this.props.page;
+    console.log("LayoutPage:", page)
+    var rows = page.layout.body.rows;
+    var i=0;
     return (
+      <div>
+
       <div className="container layout-page">
 
-
-        {rows.map(row => <Row key={row.identifier} page={this.props.page} row={row}/>)}
-
-
+        {rows.map(row => <Row key={page.layout.title + (i++)} page={page} row={row}/>)}
 
       </div>
-
+      <Footer showFooter={page.layout.footer} />,
+      </div>
     );
   }
 }

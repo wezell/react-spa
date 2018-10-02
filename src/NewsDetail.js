@@ -23,11 +23,11 @@ export default class NewsDetail extends React.Component {
   }
 
   render() {
-    console.log()
+
     return (
-      <div>
+      <div className="container raw-page">
         <h2>{this.state.news.title} </h2>
-        <img src={"https://demo.dotcms.com/dA/" + this.state.news.identifier +"/200w"} alt={this.state.news.title} />
+        <img src={"/dA/" + this.state.news.identifier +"/200w"} alt={this.state.news.title} />
         <div dangerouslySetInnerHTML={{ __html: this.state.news.story }} />
       </div>
     );

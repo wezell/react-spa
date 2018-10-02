@@ -14,20 +14,21 @@ export default class Container extends React.Component {
   }
 
   getContainer(containerInfo){
-      console.log(containerInfo)
-      return this.props.page.containers[containerInfo.identifier].rendered[ containerInfo.uuid];
+      //console.log("containerInfo", containerInfo)
+      //console.log(this.props.page.containers[containerInfo.identifier])
 
+      return this.props.page.containers[containerInfo.identifier].rendered['uuid-' + containerInfo.uuid];
   }
   render() {
     var containers = this.props.page.containers ;
     var containerInfo = this.props.containerInfo;
 
 
-    var container = this.getContainer(containerInfo);
+    var containerRendered = this.getContainer(containerInfo);
     
     return (
       <Linkify>
-        <div className="container" dangerouslySetInnerHTML={{ __html: container }} />
+        <div className="container" key={containerInfo.identifier + containerInfo.uuid} dangerouslySetInnerHTML={{ __html: containerRendered }} />
       </Linkify>
     );
   }
