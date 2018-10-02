@@ -14,7 +14,7 @@ class Home extends Component {
 
   render() {
     return (
-      <BrowserRouter >
+      <BrowserRouter basename={'/react'}>
           <Nav/>
           
 
