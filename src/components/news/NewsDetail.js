@@ -1,5 +1,5 @@
 import React from 'react';
-import dotCMS from './api/dotCMS';
+import dotCMS from '../../api/dotCMS';
 
 export default class NewsDetail extends React.Component {
   constructor(props) {

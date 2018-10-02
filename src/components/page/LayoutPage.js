@@ -27,7 +27,7 @@ export default class LayoutPage extends React.Component {
         {rows.map(row => <Row key={page.layout.title + (i++)} page={page} row={row}/>)}
 
       </div>
-      <Footer showFooter={page.layout.footer} />,
+        <Footer showFooter={page.layout.footer} />
       </div>
     );
   }

@@ -14,7 +14,7 @@ export default class NavAPI {
        
 
         if(result !== undefined){
-
+          vat navJson = JSON.parse(result.entity).children
           return JSON.parse(result.entity).children
          
         }

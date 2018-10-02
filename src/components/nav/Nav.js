@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import dotCMS from '../../api/dotCMS';
 import PageDetail from '../page/PageDetail';
-import News from '../../News';
+import News from '../news/News';
+
 import {
   Route,
   NavLink,
@@ -44,7 +45,7 @@ class Nav extends Component {
         </div>
       </li>
     } else {
-    
+
       return (
         <li className="nav-item"><NavLink key={"navKey:" + item.hash} className="nav-link" to={item.href}>{item.title}</NavLink></li>
       )
@@ -74,27 +75,27 @@ class Nav extends Component {
   }
 
   render() {
- 
+
     return (
 
       <div>
         <header>
           <nav className="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top">
-          <div className="container">
-            
-            <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav mr-auto">
-            <li className="nav-item">
-              <NavLink className="nav-link" key={"navKeyIndex"} to="/index">Home</NavLink>
-             </li>
-                {this.buildLinks(this.state.nav)}
-              </ul>
-            </div>
+            <div className="container">
+
+              <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul className="navbar-nav mr-auto">
+                  <li className="nav-item">
+                    <NavLink className="nav-link" key={"navKeyIndex"} to="/index">Home</NavLink>
+                  </li>
+                  {this.buildLinks(this.state.nav)}
+                </ul>
+              </div>
             </div>
           </nav>
         </header>
         <main className="content-wrap">
-     
+
           {this.buildRoutes(this.state.nav)}
           <Route
             key={`route/index`}
@@ -102,7 +103,7 @@ class Nav extends Component {
             path={`/index`}
             exact
           />
-        <News/>
+          <News />
         </main>
       </div>
 

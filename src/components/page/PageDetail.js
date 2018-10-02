@@ -3,7 +3,7 @@ import dotCMS from '../../api/dotCMS';
 import Linkify from 'react-linkify';
 import RawPage from './RawPage';
 import LayoutPage from './LayoutPage';
-
+import Loader from 'react-loader-spinner';
 export default class PageDetail extends React.Component {
   constructor(props) {
     super(props);
@@ -29,10 +29,15 @@ export default class PageDetail extends React.Component {
   render() {
     var data = this.state.page;
 
-    if (data === null) {
-      return <div>No Page Found</div>;
+    if (data === null ) {
+      return    <div className="container " style={{marginRight:'auto',marginLeft:'auto',marginTop:100+'px',width:100+'px'}}><Loader 
+                  type="Ball-Triangle"
+                  color="#eeeeee"
+                  height="100"	
+                  width="100"
+              />   </div> 
     }
-    console.log(data);
+
     var hasLayout = (data.entity.layout !== undefined && data.entity.layout !==null);
 
     if (!hasLayout) {

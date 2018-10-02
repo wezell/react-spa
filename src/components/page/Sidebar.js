@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Container from './Container';
-export default class Column extends React.Component {
+export default class Sidebar extends React.Component {
 
 
 
@@ -17,14 +17,11 @@ export default class Column extends React.Component {
     var containers=column.containers;
 
     return (
-      <div className={"col-" + width + " column"} key={}>
-        {containers.map(container => <Container page={this.props.page} containerInfo={container}/>)}
+      <div className={"col-" + width + " column"}>
 
 
 
-
-
-        </div>
+      </div>
 
     );
   }

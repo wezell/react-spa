@@ -12,4 +12,5 @@ const News = () => (
   </Switch>
 )
 
+
 export default News

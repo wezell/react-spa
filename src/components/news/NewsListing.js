@@ -1,5 +1,5 @@
 import React from 'react';
-import dotCMS from './api/dotCMS';
+import dotCMS from '../../api/dotCMS';
 import { Link } from 'react-router-dom'
 
 
@@ -30,7 +30,7 @@ export default class NewsListing extends React.Component {
       
       <ul>
 
-        {this.state.news.map(item => <li key={item.identifier}><Link to={`/news/${item.urlTitle}`}>{item.title}</Link></li>)}
+        {this.state.news.map(item => <li key={item.identifier}><Link to={`/react/news/${item.urlTitle}`}>{item.title}</Link></li>)}
 
       </ul>
     );
