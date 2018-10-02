@@ -5,14 +5,14 @@ import Linkify from 'react-linkify';
 export default class RawPage extends React.Component {
   constructor(props) {
     super(props);
-    console.log("RawPage:", props)
+    //console.log("RawPage:", props)
   }
 
 
   render() {
     var data = this.props;
 
-    var str = data.page.page.rendered;
+    var str = data.page.entity.page.rendered
     var hasContent = (str !== undefined && str !== null);
     if (hasContent) {
       if (str.indexOf("</header>") > -1 && str.indexOf("</body>") > -1) {

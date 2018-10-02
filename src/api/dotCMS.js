@@ -7,7 +7,7 @@ export default class dotCMS {
 
     constructor() {
         this.baseUrl = "http://localhost:8080";
-        this.accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJpWEtweXU2QmtzcWI0MHZNa3VSUVF3PT0iLCJpYXQiOjE1MjM0NjI4MDEsInN1YiI6IntcInVzZXJJZFwiOlwiaVhLcHl1NkJrc3FiNDB2TWt1UlFRd1xcdTAwM2RcXHUwMDNkXCIsXCJsYXN0TW9kaWZpZWRcIjoxMjA0ODI0OTYxMDAwLFwiY29tcGFueUlkXCI6XCJkb3RjbXMub3JnXCJ9IiwiaXNzIjoiaVhLcHl1NkJrc3FiNDB2TWt1UlFRdz09IiwiZXhwIjoxNTI2MDU0ODAxfQ.Q0MdoMix4bbic-Ckxa1G33gQrU9GLiJ1Je3cdYo4KcY";
+        this.accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJkMmE4OWE4Ni1mNmEyLTRmZmQtOTM5ZS0zNDMxNGE3YjY4NjYiLCJpYXQiOjE1Mzg0OTUzMTcsInVwZGF0ZWRfYXQiOjEyMDQ4MjQ5NjEwMDAsInN1YiI6ImRvdGNtcy5vcmcuMSIsImlzcyI6IjIzYzZkZDJjLTg5M2QtNDFlZi1hNWFhLTMyODU4MDQxY2M3MCIsImV4cCI6MTUzOTM1OTMxN30.70e5EweujpPnIdZJ2G_PCKxrpuzduKkxdxRWJPM1am0";
     }
 
 

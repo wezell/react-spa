@@ -15,9 +15,10 @@ class Nav extends Component {
     this.state = { nav: [] };
   }
   componentDidMount() {
-    new dotCMS().navClient().getNav("/", 3).then(myData => {
-      if (myData !== undefined) {
-        this.setState({ nav: myData });
+    new dotCMS().navClient().getNav("/", 3).then(navData => {
+      console.log("navData", )
+      if (navData !== undefined) {
+        this.setState({ nav: navData });
       }
     })
   }
@@ -44,7 +45,7 @@ class Nav extends Component {
     } else {
     
       return (
-        <li className="nav-item"><NavLink key={item.hash} className="nav-link" to={item.href}>{item.title}</NavLink></li>
+        <li className="nav-item"><NavLink key={"navKey" + item.hash} className="nav-link" to={item.href}>{item.title}</NavLink></li>
       )
     }
   }
@@ -72,13 +73,14 @@ class Nav extends Component {
   }
 
   render() {
+    console.log(this.state.nav)
     return (
 
       <div>
         <header>
           <nav className="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top">
-          <div class="container">
-            <NavLink className="navbar-brand" to="/index">Home</NavLink>
+          <div className="container">
+            <NavLink className="navbar-brand" key={"navKeyIndex"} to="/index">Home</NavLink>
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav mr-auto">
                 {this.buildLinks(this.state.nav)}

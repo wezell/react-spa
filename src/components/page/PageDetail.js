@@ -23,7 +23,7 @@ export default class PageDetail extends React.Component {
     }).catch(function (rej) {
       console.error("PageDetail:" + rej);
     });
-    console.error("componentDidMount done");
+
   }
 
   render() {
