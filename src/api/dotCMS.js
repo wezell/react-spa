@@ -7,7 +7,7 @@ export default class dotCMS {
 
     constructor() {
         this.baseUrl = "http://localhost:8080";
-        this.accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJkMmE4OWE4Ni1mNmEyLTRmZmQtOTM5ZS0zNDMxNGE3YjY4NjYiLCJpYXQiOjE1Mzg0OTUzMTcsInVwZGF0ZWRfYXQiOjEyMDQ4MjQ5NjEwMDAsInN1YiI6ImRvdGNtcy5vcmcuMSIsImlzcyI6IjIzYzZkZDJjLTg5M2QtNDFlZi1hNWFhLTMyODU4MDQxY2M3MCIsImV4cCI6MTUzOTM1OTMxN30.70e5EweujpPnIdZJ2G_PCKxrpuzduKkxdxRWJPM1am0";
+        this.accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIyZTIyMmI5Mi03M2ExLTQwNGYtOTQ1Yy04YjUzNDcxM2JjMjkiLCJpYXQiOjE1Mzg2NjAzMjUsInVwZGF0ZWRfYXQiOjEyMDQ4MjQ5NjEwMDAsInN1YiI6ImRvdGNtcy5vcmcuMSIsImlzcyI6ImI0MzQxZWI5LTA3YzgtNGEyMC05OTFiLTIwOGFjNDA0ZjBmZSIsImV4cCI6MTU0MjIwMjcyNX0.jUBE1oYFiXXME9EtG65CzL_prpRpaRSO-jD9bAN1L84";
     }
 
 

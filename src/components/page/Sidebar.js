@@ -1,28 +1,35 @@
 import React from 'react';
 
-import Container from './Container';
-export default class Sidebar extends React.Component {
+import Linkify from 'react-linkify';
 
+export default class Sidebar extends React.Component {
+  constructor(props) {
+    super(props);
+
+  }
 
 
   componentDidMount() {
 
   }
 
+  getContainer(containerInfo){
+      //console.log("containerInfo", containerInfo)
+      //console.log(this.props.page.containers[containerInfo.identifier])
+
+      return this.props.page.containers[containerInfo.identifier].rendered['uuid-' + containerInfo.uuid];
+  }
   render() {
-    var column =this.props.column;
-    console.log("column", this.props.column)
-    var width=column.width;
-    var offset=column.left;
-    var containers=column.containers;
+    var containers = this.props.page.containers ;
+    var containerInfo = this.props.containerInfo;
 
+
+    var containerRendered = this.getContainer(containerInfo);
+    
     return (
-      <div className={"col-" + width + " column"}>
-
-
-
-      </div>
-
+      <Linkify>
+        <div className="container" key={containerInfo.identifier + containerInfo.uuid} dangerouslySetInnerHTML={{ __html: containerRendered }} />
+      </Linkify>
     );
   }
 }

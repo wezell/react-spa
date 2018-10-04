@@ -7,14 +7,20 @@ export default class Footer extends React.Component {
 
   render() {
 
+    if(this.props.showFooter){
 
-    return (
-      <footer className="footer bg-light">
-        <div className="container">
-          <div className="text-muted">Footer content!</div>
-        </div>
-      </footer>
+      return (
+        <footer className="footer bg-light">
+          <div className="container">
+            <div className="mr-center">This page has a footer!</div>
+          </div>
+        </footer>
 
-    );
+      )
+    }
+    else{
+      return null;
+
+    }
   }
 }

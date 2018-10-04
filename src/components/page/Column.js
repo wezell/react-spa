@@ -17,11 +17,8 @@ export default class Column extends React.Component {
     var containers=column.containers;
 
     return (
-      <div className={"col-" + width + " column"} key={}>
+      <div className={"col-" + width + " column"} >
         {containers.map(container => <Container page={this.props.page} containerInfo={container}/>)}
-
-
-
 
 
         </div>
